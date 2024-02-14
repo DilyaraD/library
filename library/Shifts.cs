@@ -15,8 +15,8 @@ namespace library
     public partial class Shifts
     {
         public int shift_number { get; set; }
-        public System.TimeSpan start_time { get; set; }
-        public System.TimeSpan end_time { get; set; }
+        public System.DateTime start_time { get; set; }
+        public System.DateTime end_time { get; set; }
         public int librarian_id { get; set; }
     
         public virtual Librarians Librarians { get; set; }

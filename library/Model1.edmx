@@ -88,8 +88,8 @@
             <PropertyRef Name="shift_number" />
           </Key>
           <Property Name="shift_number" Type="int" Nullable="false" />
-          <Property Name="start_time" Type="time" Precision="7" Nullable="false" />
-          <Property Name="end_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="start_time" Type="datetime" Nullable="false" />
+          <Property Name="end_time" Type="datetime" Nullable="false" />
           <Property Name="librarian_id" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Books__author_id__403A8C7D">
@@ -370,8 +370,8 @@
             <PropertyRef Name="shift_number" />
           </Key>
           <Property Name="shift_number" Type="Int32" Nullable="false" />
-          <Property Name="start_time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="end_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="start_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="end_time" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="librarian_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Librarians" Relationship="Self.FK__Shifts__libraria__44FF419A" FromRole="Shifts" ToRole="Librarians" />
         </EntityType>

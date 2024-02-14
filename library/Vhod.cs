@@ -33,11 +33,6 @@ namespace library
                 MainW mainw = new MainW(new librariesEntities(), user);
                 Hide();
                 mainw.ShowDialog();
-                DialogResult dialogResult = MessageBox.Show("Закрыть программу?", "Выход", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                    Close();
-                else if (dialogResult == DialogResult.No)
-                    Show();
             }
             else
             {
