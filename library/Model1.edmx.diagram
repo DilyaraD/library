@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21695ad40ddc4fa9abc6b58fab48af25" Name="Diagram1">
+        <EntityTypeShape EntityType="librariesModel.Authors" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="librariesModel.Books" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="librariesModel.BorrowedBooks" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="librariesModel.Genres" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="librariesModel.Librarians" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="librariesModel.Publishing" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="librariesModel.Readers" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="librariesModel.ReturnedBooks" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="librariesModel.Shifts" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="librariesModel.FK__Books__author_id__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__Books__genre_id__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__Books__publishin__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__BorrowedB__book___48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__ReturnedB__book___4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__BorrowedB__libra__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__BorrowedB__reade__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__ReturnedB__libra__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__Shifts__libraria__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="librariesModel.FK__ReturnedB__reade__4CA06362" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
