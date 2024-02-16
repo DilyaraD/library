@@ -54,7 +54,7 @@
             // button_readers
             // 
             this.button_readers.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_readers.Location = new System.Drawing.Point(24, 317);
+            this.button_readers.Location = new System.Drawing.Point(24, 322);
             this.button_readers.Margin = new System.Windows.Forms.Padding(2);
             this.button_readers.Name = "button_readers";
             this.button_readers.Size = new System.Drawing.Size(200, 66);
@@ -65,7 +65,7 @@
             // button_brbooks
             // 
             this.button_brbooks.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_brbooks.Location = new System.Drawing.Point(24, 179);
+            this.button_brbooks.Location = new System.Drawing.Point(24, 188);
             this.button_brbooks.Margin = new System.Windows.Forms.Padding(2);
             this.button_brbooks.Name = "button_brbooks";
             this.button_brbooks.Size = new System.Drawing.Size(200, 50);
@@ -75,13 +75,13 @@
             // 
             // button_data
             // 
-            this.button_data.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_data.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_data.Location = new System.Drawing.Point(24, 109);
             this.button_data.Margin = new System.Windows.Forms.Padding(2);
             this.button_data.Name = "button_data";
-            this.button_data.Size = new System.Drawing.Size(200, 50);
+            this.button_data.Size = new System.Drawing.Size(200, 60);
             this.button_data.TabIndex = 7;
-            this.button_data.Text = "Занесение данных";
+            this.button_data.Text = "Занесение \r\nданных";
             this.button_data.UseVisualStyleBackColor = true;
             // 
             // button_poisk
@@ -94,6 +94,7 @@
             this.button_poisk.TabIndex = 6;
             this.button_poisk.Text = "Поиск";
             this.button_poisk.UseVisualStyleBackColor = true;
+            this.button_poisk.Click += new System.EventHandler(this.button_poisk_Click);
             // 
             // groupBox1
             // 
@@ -113,7 +114,7 @@
             // 
             this.button_rtbooks.Cursor = System.Windows.Forms.Cursors.No;
             this.button_rtbooks.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_rtbooks.Location = new System.Drawing.Point(24, 250);
+            this.button_rtbooks.Location = new System.Drawing.Point(24, 253);
             this.button_rtbooks.Name = "button_rtbooks";
             this.button_rtbooks.Size = new System.Drawing.Size(200, 50);
             this.button_rtbooks.TabIndex = 10;

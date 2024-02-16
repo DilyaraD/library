@@ -20,6 +20,7 @@ namespace library
             InitializeComponent();
             _user = user;
             _context = context;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void button_yes_Click(object sender, EventArgs e)
