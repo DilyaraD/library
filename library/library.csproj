@@ -57,6 +57,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAuthW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAuthW.Designer.cs">
+      <DependentUpon>AddAuthW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddBookW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBookW.Designer.cs">
+      <DependentUpon>AddBookW.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddMess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +143,12 @@
     <Compile Include="Vhod.Designer.cs">
       <DependentUpon>Vhod.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAuthW.resx">
+      <DependentUpon>AddAuthW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBookW.resx">
+      <DependentUpon>AddBookW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddMess.resx">
       <DependentUpon>AddMess.cs</DependentUpon>
     </EmbeddedResource>

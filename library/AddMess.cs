@@ -24,12 +24,16 @@ namespace library
 
         private void button_auth_Click(object sender, EventArgs e)
         {
-
+            AddAuthW auth = new AddAuthW(new librariesEntities(), _user);
+            Hide();
+            auth.ShowDialog();
         }
 
         private void button_book_Click(object sender, EventArgs e)
         {
-
+            AddBookW book = new AddBookW(new librariesEntities(), _user);
+            Hide();
+            book.ShowDialog();
         }
     }
 }

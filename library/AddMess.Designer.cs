@@ -38,7 +38,7 @@
             this.button_auth.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_auth.Location = new System.Drawing.Point(64, 160);
             this.button_auth.Name = "button_auth";
-            this.button_auth.Size = new System.Drawing.Size(116, 50);
+            this.button_auth.Size = new System.Drawing.Size(138, 50);
             this.button_auth.TabIndex = 0;
             this.button_auth.Text = "читатель";
             this.button_auth.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // button_book
             // 
             this.button_book.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_book.Location = new System.Drawing.Point(230, 159);
+            this.button_book.Location = new System.Drawing.Point(219, 159);
             this.button_book.Name = "button_book";
-            this.button_book.Size = new System.Drawing.Size(115, 51);
+            this.button_book.Size = new System.Drawing.Size(126, 51);
             this.button_book.TabIndex = 1;
             this.button_book.Text = "книга";
             this.button_book.UseVisualStyleBackColor = true;

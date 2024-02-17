@@ -83,6 +83,7 @@
             this.button_data.TabIndex = 7;
             this.button_data.Text = "Занесение \r\nданных";
             this.button_data.UseVisualStyleBackColor = true;
+            this.button_data.Click += new System.EventHandler(this.button_data_Click);
             // 
             // button_poisk
             // 

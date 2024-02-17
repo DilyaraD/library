@@ -105,5 +105,12 @@ namespace library
             Hide();
             poisk.ShowDialog();
         }
+
+        private void button_data_Click(object sender, EventArgs e)
+        {
+            AddMess mes = new AddMess(new librariesEntities(), _user);
+            Hide();
+            mes.ShowDialog();
+        }
     }
 }
