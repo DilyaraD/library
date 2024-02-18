@@ -61,6 +61,7 @@
             this.button_readers.TabIndex = 9;
             this.button_readers.Text = "Читательские билеты";
             this.button_readers.UseVisualStyleBackColor = true;
+            this.button_readers.Click += new System.EventHandler(this.button_readers_Click);
             // 
             // button_brbooks
             // 
@@ -72,6 +73,7 @@
             this.button_brbooks.TabIndex = 8;
             this.button_brbooks.Text = "Выдача книг";
             this.button_brbooks.UseVisualStyleBackColor = true;
+            this.button_brbooks.Click += new System.EventHandler(this.button_brbooks_Click);
             // 
             // button_data
             // 

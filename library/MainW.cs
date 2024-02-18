@@ -112,5 +112,17 @@ namespace library
             Hide();
             mes.ShowDialog();
         }
+
+        private void button_readers_Click(object sender, EventArgs e)
+        {
+            ListReaders list = new ListReaders (new librariesEntities(), _user);
+            Hide();
+            list.ShowDialog();
+        }
+
+        private void button_brbooks_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -84,11 +84,23 @@
     <Compile Include="BorrowedBooks.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EditReaderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditReaderInfo.Designer.cs">
+      <DependentUpon>EditReaderInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Genres.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Librarians.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListReaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListReaders.Designer.cs">
+      <DependentUpon>ListReaders.cs</DependentUpon>
     </Compile>
     <Compile Include="MainW.cs">
       <SubType>Form</SubType>
@@ -122,6 +134,12 @@
     <Compile Include="Publishing.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ReaderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReaderInfo.Designer.cs">
+      <DependentUpon>ReaderInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Readers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -152,6 +170,12 @@
     <EmbeddedResource Include="AddMess.resx">
       <DependentUpon>AddMess.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditReaderInfo.resx">
+      <DependentUpon>EditReaderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListReaders.resx">
+      <DependentUpon>ListReaders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainW.resx">
       <DependentUpon>MainW.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +191,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReaderInfo.resx">
+      <DependentUpon>ReaderInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SmenaW.resx">
       <DependentUpon>SmenaW.cs</DependentUpon>
     </EmbeddedResource>

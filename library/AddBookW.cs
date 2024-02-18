@@ -56,6 +56,16 @@ namespace library
             }
         }
 
+        private void ClearFields()
+        {
+            textBox_title.Text = "";
+            comboBoxAuthor.SelectedIndex = -1;
+            comboBoxPublishing.SelectedIndex = -1;
+            textBox_year.Text = "";
+            comboBoxGenre.SelectedIndex = -1;
+            textBox_quantity.Text = "";
+        }
+
         private void button_add_Click(object sender, EventArgs e)
         {
 
@@ -83,6 +93,7 @@ namespace library
             _context.SaveChanges();
 
             MessageBox.Show("Книга успешно добавлена.");
+            ClearFields();
         }
 
         private int GetIdFromName(string name, string tableName)
@@ -141,10 +152,52 @@ namespace library
                 return false;
             }
 
+            if (!int.TryParse(textBox_quantity.Text, out _))
+            {
+                MessageBox.Show("Введите корректное количество экземпляров книги.");
+                return false;
+            }
+
             if (!int.TryParse(textBox_year.Text, out _))
             {
                 MessageBox.Show("Введите корректный год выпуска.");
                 return false;
+            }
+
+            foreach (char c in textBox_title.Text)
+            {
+                if (!char.IsLetter(c) || !char.IsWhiteSpace(c))
+                {
+                    MessageBox.Show("Ввод должен содержать только английские символы.");
+                    return false;
+                }
+            }
+
+            foreach (char c in comboBoxAuthor.Text)
+            {
+                if (!char.IsLetter(c) || !char.IsWhiteSpace(c))
+                {
+                    MessageBox.Show("Ввод должен содержать только английские символы.");
+                    return false;
+                }
+            }
+
+            foreach (char c in comboBoxGenre.Text)
+            {
+                if (!char.IsLetter(c) || !char.IsWhiteSpace(c))
+                {
+                    MessageBox.Show("Ввод должен содержать только английские символы.");
+                    return false;
+                }
+            }
+
+            foreach (char c in comboBoxPublishing.Text)
+            {
+                if (!char.IsLetter(c) || !char.IsWhiteSpace(c))
+                {
+                    MessageBox.Show("Ввод должен содержать только английские символы.");
+                    return false;
+                }
             }
 
             return true;
