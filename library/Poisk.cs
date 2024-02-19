@@ -22,6 +22,15 @@ namespace library
             _user = user;
             _context = context;
             this.StartPosition = FormStartPosition.CenterScreen;
+            FillContext();
+        }
+
+        void FillContext()
+        {
+            foreach (var books in _context.Books)
+            {
+                listBox1.Items.Add(books.title);
+            }
         }
 
         private void button_poisk_Click(object sender, EventArgs e)

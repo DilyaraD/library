@@ -15,6 +15,8 @@ namespace library
     {
         private readonly librariesEntities _context;
         private readonly Librarians _user;
+        private readonly Books _book;
+        private readonly Readers _reader;
         private System.Timers.Timer timer;
         public MainW(librariesEntities context, Librarians user)
         {
@@ -122,6 +124,9 @@ namespace library
 
         private void button_brbooks_Click(object sender, EventArgs e)
         {
+            BorrBooks brBooks = new BorrBooks(new librariesEntities(), _user);
+            Hide();
+            brBooks.ShowDialog();
 
         }
     }
