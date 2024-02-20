@@ -39,7 +39,6 @@
             this.label_smena = new System.Windows.Forms.Label();
             this.label_date = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label_librarian = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label_Readers = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label_Books = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label_librarian = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -123,14 +123,15 @@
             this.button_rtbooks.TabIndex = 10;
             this.button_rtbooks.Text = "Возврат книг";
             this.button_rtbooks.UseVisualStyleBackColor = true;
+            this.button_rtbooks.Click += new System.EventHandler(this.button_rtbooks_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label_librarian);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label_smena);
             this.groupBox2.Controls.Add(this.label_date);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label_librarian);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label_Readers);
             this.groupBox2.Controls.Add(this.label2);
@@ -184,16 +185,6 @@
             this.label5.Size = new System.Drawing.Size(146, 26);
             this.label5.TabIndex = 8;
             this.label5.Text = "Дата и время:";
-            // 
-            // label_librarian
-            // 
-            this.label_librarian.AutoSize = true;
-            this.label_librarian.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_librarian.Location = new System.Drawing.Point(16, 196);
-            this.label_librarian.Name = "label_librarian";
-            this.label_librarian.Size = new System.Drawing.Size(181, 33);
-            this.label_librarian.TabIndex = 7;
-            this.label_librarian.Text = "Имя Фамилия";
             // 
             // label4
             // 
@@ -265,6 +256,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Общее количество книг: ";
             // 
+            // label_librarian
+            // 
+            this.label_librarian.AutoSize = true;
+            this.label_librarian.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_librarian.LinkColor = System.Drawing.Color.Black;
+            this.label_librarian.Location = new System.Drawing.Point(16, 196);
+            this.label_librarian.Name = "label_librarian";
+            this.label_librarian.Size = new System.Drawing.Size(135, 33);
+            this.label_librarian.TabIndex = 12;
+            this.label_librarian.TabStop = true;
+            this.label_librarian.Text = "linkLabel1";
+            this.label_librarian.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label_librarian_LinkClicked);
+            // 
             // MainW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -301,6 +305,6 @@
         private System.Windows.Forms.Label label_smena;
         private System.Windows.Forms.Label label_date;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label_librarian;
+        private System.Windows.Forms.LinkLabel label_librarian;
     }
 }

@@ -94,11 +94,12 @@ namespace library
             label_date.Text = DateTime.Now.ToShortDateString();
             StartShiftTimer();
             int readers = (int)_context.Readers.Max(R => R.id);
+            int totalBooks = _context.Books.Sum(b => b.quantity);
             label_Readers.Text = readers.ToString();
             int unreturnedBooksCount = CountUnreturnedBooks();
             label_BorBooks.Text=unreturnedBooksCount.ToString();
             int books = (int)_context.Books.Max(B => B.id);
-            label_Books.Text=books.ToString();
+            label_Books.Text=totalBooks.ToString();
         }
 
         private void button_poisk_Click(object sender, EventArgs e)
@@ -128,6 +129,20 @@ namespace library
             Hide();
             brBooks.ShowDialog();
 
+        }
+
+        private void label_librarian_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Librarian librarian = new Librarian(new librariesEntities(), _user);
+            Hide();
+            librarian.ShowDialog();
+        }
+
+        private void button_rtbooks_Click(object sender, EventArgs e)
+        {
+            RetBooks retBooks = new RetBooks(new librariesEntities(), _user);
+            Hide();
+            retBooks.ShowDialog();
         }
     }
 }
