@@ -133,15 +133,9 @@ namespace library
             string selectedBook = listBox1.SelectedItem.ToString();
             _book = _context.Books.Where(B => B.title == selectedBook).FirstOrDefault();
 
-            if (_context.BorrowedBooks.Any(b => b.reader_id == _reader.id && b.book_id == _book.id))
+            if (_context.BorrowedBooks.Any(b => b.reader_id == _reader.id && b.book_id == _book.id && b.dates_must_return > DateTime.Now && b.dates_b < DateTime.Now))
             {
                 MessageBox.Show("У читателя книга уже на руках.");
-                return;
-            }
-
-            if (_context.BorrowedBooks.Any(b => b.book_id == _book.id && b.dates_b.AddDays(14) > DateTime.Now))
-            {
-                MessageBox.Show("Книга должна быть возвращена в библиотеку в течение 2 недель.");
                 return;
             }
 
@@ -151,7 +145,7 @@ namespace library
                 return;
             }
             DateTime currentDate = DateTime.Now;
-            DateTime newDate = currentDate.AddDays(14);
+            DateTime newDate = currentDate.AddHours(336);
             int borrbook = (int)_context.BorrowedBooks.Max(B => B.borrowed_book_id);
             BorrowedBooks borbook = new BorrowedBooks
             {
@@ -163,10 +157,13 @@ namespace library
                 librarian_id = _user.id
             };
 
-            _book.quantity -= 1; // уменьшение количества книг на 1
+            _book.quantity -= 1;
             _context.BorrowedBooks.Add(borbook);
             _context.SaveChanges();
-
+            listBox1.ClearSelected();
+            listBox2.ClearSelected();
+            label_name.Text = "";
+            label_title.Text = "";
             MessageBox.Show("Выдана книга.");
         }
     }
