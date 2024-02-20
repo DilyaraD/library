@@ -79,7 +79,7 @@ namespace library
             int unreturnedBooks = 0;
             foreach (var borrowedBook in _context.BorrowedBooks)
             {
-                var returnedBook = _context.ReturnedBooks.FirstOrDefault(r => r.returned_book_id == borrowedBook.borrowed_book_id);
+                var returnedBook = _context.ReturnedBooks.FirstOrDefault(r => r.book_id == borrowedBook.book_id && r.reader_id == borrowedBook.reader_id);
                 if (returnedBook == null)
                 {
                     unreturnedBooks++;

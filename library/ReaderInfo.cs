@@ -41,23 +41,31 @@ namespace library
             var borrowedBooks = _context.BorrowedBooks.Where(b => b.reader_id == _reader.id)
                             .Select(b => new
                             {
+                                B_id = b.Books.id,
                                 b.dates_b,
                                 book = b.Books.title,
                                 b.dates_must_return
                             })
-                            .FirstOrDefault();
+                            .ToList();
 
-            if (borrowedBooks != null)
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Книга");
+            dataTable.Columns.Add("Дата выдачи");
+            dataTable.Columns.Add("Дата возврата");
+
+            foreach (var borrowedBook in borrowedBooks)
             {
-                DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("Книга");
-                dataTable.Columns.Add("Дата выдачи");
-                dataTable.Columns.Add("Дата возврата");
-                dataTable.Rows.Add(borrowedBooks.book, borrowedBooks.dates_b.ToShortDateString(), borrowedBooks.dates_must_return.ToShortDateString());
-                dataGridView_bbooks.DataSource = dataTable;
+                bool isReturned = _context.ReturnedBooks.Any(rb => rb.reader_id == _reader.id && rb.book_id == borrowedBook.B_id);
+                if (!isReturned)
+                {
+                    dataTable.Rows.Add(borrowedBook.book, borrowedBook.dates_b.ToShortDateString(), borrowedBook.dates_must_return.ToShortDateString());
+                }
             }
-            
+
+            dataGridView_bbooks.DataSource = dataTable;
         }
+
+
 
         void FillReturnedBooks()
         {
@@ -92,6 +100,11 @@ namespace library
             ListReaders list = new ListReaders(new librariesEntities(), _user);
             Hide();
             list.ShowDialog();
+        }
+
+        private void dataGridView_rbooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

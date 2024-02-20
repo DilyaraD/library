@@ -34,26 +34,29 @@ namespace library
         private void LoadUnreturnedBooks(int readerId)
         {
             var unreturnedBooks = _context.BorrowedBooks
-                .Where(bb => bb.reader_id == readerId && !_context.ReturnedBooks.Any(rb => rb.book_id == bb.book_id))
-                .Select(bb => new
-                {
-                    BookTitle = bb.Books.title,
-                    DueDate = bb.dates_must_return
-                })
-                .ToList();
+         .Where(bb => bb.reader_id == readerId && !_context.ReturnedBooks.Any(rb => rb.book_id == bb.book_id))
+         .Select(bb => new
+         {
+             BookTitle = bb.Books.title,
+             DueDate = bb.dates_must_return
+         })
+         .ToList();
 
             dataGridView1.DataSource = unreturnedBooks;
             if (!dataGridView1.Columns.Contains("ReturnButton"))
             {
                 DataGridViewButtonColumn returnButtonColumn = new DataGridViewButtonColumn();
                 returnButtonColumn.Name = "ReturnButton";
-                returnButtonColumn.HeaderText = "Сдать";
-                returnButtonColumn.Text = "Сдать";
+                returnButtonColumn.HeaderText = "Сдать книгу";
+                returnButtonColumn.Text = "Сдать книгу";
                 returnButtonColumn.UseColumnTextForButtonValue = true;
                 dataGridView1.Columns.Add(returnButtonColumn);
             }
-        }
 
+            // Добавляем названия колонок "Название книги" и "Дата сдачи книги"
+            dataGridView1.Columns["BookTitle"].HeaderText = "Название книги";
+            dataGridView1.Columns["DueDate"].HeaderText = "Дата сдачи книги";
+        }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -107,7 +110,9 @@ namespace library
                     book.quantity += 1;
                     _context.ReturnedBooks.Add(returnedBook);
                     _context.SaveChanges();
-
+                    // Показываем сообщение о сдаче книги
+                    string readerName = _reader.first_name + " " + _reader.last_name;
+                    MessageBox.Show($"Книга \"{bookTitle}\" сдана читателем {readerName} {DateTime.Now}");
                     LoadUnreturnedBooks(_reader.id);
                 }
             }

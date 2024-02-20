@@ -194,6 +194,9 @@
     <EmbeddedResource Include="EditReaderInfo.resx">
       <DependentUpon>EditReaderInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Librarian.resx">
+      <DependentUpon>Librarian.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListReaders.resx">
       <DependentUpon>ListReaders.cs</DependentUpon>
     </EmbeddedResource>

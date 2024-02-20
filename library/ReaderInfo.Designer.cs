@@ -30,6 +30,8 @@
         {
             this.button_back = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label_chitticket = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.button_edite = new System.Windows.Forms.Button();
             this.label_phone = new System.Windows.Forms.Label();
             this.label_lname = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.dataGridView_rbooks = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label_chitticket = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_bbooks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_rbooks)).BeginInit();
@@ -81,6 +81,26 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "информация";
+            // 
+            // label_chitticket
+            // 
+            this.label_chitticket.AutoSize = true;
+            this.label_chitticket.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_chitticket.Location = new System.Drawing.Point(216, 215);
+            this.label_chitticket.Name = "label_chitticket";
+            this.label_chitticket.Size = new System.Drawing.Size(18, 26);
+            this.label_chitticket.TabIndex = 10;
+            this.label_chitticket.Text = ".";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(7, 215);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(191, 26);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Номер чит. билета";
             // 
             // button_edite
             // 
@@ -202,6 +222,7 @@
             this.dataGridView_rbooks.RowTemplate.Height = 24;
             this.dataGridView_rbooks.Size = new System.Drawing.Size(451, 150);
             this.dataGridView_rbooks.TabIndex = 4;
+            this.dataGridView_rbooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_rbooks_CellContentClick);
             // 
             // label6
             // 
@@ -220,26 +241,6 @@
             this.label7.Size = new System.Drawing.Size(106, 16);
             this.label7.TabIndex = 6;
             this.label7.Text = "сданные книги:";
-            // 
-            // label_chitticket
-            // 
-            this.label_chitticket.AutoSize = true;
-            this.label_chitticket.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_chitticket.Location = new System.Drawing.Point(216, 215);
-            this.label_chitticket.Name = "label_chitticket";
-            this.label_chitticket.Size = new System.Drawing.Size(18, 26);
-            this.label_chitticket.TabIndex = 10;
-            this.label_chitticket.Text = ".";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(7, 215);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(191, 26);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Номер чит. билета";
             // 
             // ReaderInfo
             // 

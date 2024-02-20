@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -144,6 +145,7 @@ namespace library
             return id;
         }
 
+
         private bool ValidateInput()
         {
             if (string.IsNullOrWhiteSpace(textBox_title.Text) || string.IsNullOrWhiteSpace(textBox_year.Text))
@@ -164,46 +166,35 @@ namespace library
                 return false;
             }
 
-            foreach (char c in textBox_title.Text)
+            if (!Regex.IsMatch(textBox_title.Text, @"^[a-zA-Z0-9\s]+$"))
             {
-                if (!char.IsLetter(c) || !char.IsWhiteSpace(c))
-                {
-                    MessageBox.Show("Ввод должен содержать только английские символы.");
-                    return false;
-                }
+                MessageBox.Show("Название книги должно содержать только буквы и цифры на английском.");
+                return false;
             }
 
-            foreach (char c in comboBoxAuthor.Text)
+            if (!Regex.IsMatch(comboBoxAuthor.Text, @"^[a-zA-Z\s]+$"))
             {
-                if (!char.IsLetter(c) || !char.IsWhiteSpace(c))
-                {
-                    MessageBox.Show("Ввод должен содержать только английские символы.");
-                    return false;
-                }
+                MessageBox.Show("Имя автора должно содержать только буквы на английском.");
+                return false;
             }
 
-            foreach (char c in comboBoxGenre.Text)
+            if (!Regex.IsMatch(comboBoxGenre.Text, @"^[a-zA-Z\s]+$"))
             {
-                if (!char.IsLetter(c) || !char.IsWhiteSpace(c))
-                {
-                    MessageBox.Show("Ввод должен содержать только английские символы.");
-                    return false;
-                }
+                MessageBox.Show("Жанр должен содержать только буквы на английском.");
+                return false;
             }
 
-            foreach (char c in comboBoxPublishing.Text)
+            if (!Regex.IsMatch(comboBoxPublishing.Text, @"^[a-zA-Z\s]+$"))
             {
-                if (!char.IsLetter(c) || !char.IsWhiteSpace(c))
-                {
-                    MessageBox.Show("Ввод должен содержать только английские символы.");
-                    return false;
-                }
+                MessageBox.Show("Издательство должно содержать только буквы на английском.");
+                return false;
             }
 
             return true;
         }
 
-        private void button_back_Click_1(object sender, EventArgs e)
+
+    private void button_back_Click_1(object sender, EventArgs e)
         {
             MainW main = new MainW(new librariesEntities(), _user);
             Hide();
