@@ -35,7 +35,7 @@ namespace library
                 listBox2.Items.Add(readers.first_name + " " + readers.last_name);
             }
 
-            foreach (var books in _context.Books)
+            foreach (var books in _context.Books.Where(B => B.status == "Available"))
             {
                 listBox1.Items.Add(books.title);
             }
@@ -58,7 +58,7 @@ namespace library
             if (listBox1.SelectedIndex != -1)
             {
                 string selectedBook = listBox1.SelectedItem.ToString();
-                _book = _context.Books.Where(B => B.title == selectedBook).FirstOrDefault();
+                _book = _context.Books.Where(B => B.title == selectedBook && B.status == "Available").FirstOrDefault();
 
                 if (_book != null)
                 {

@@ -94,7 +94,7 @@ namespace library
             label_date.Text = DateTime.Now.ToShortDateString();
             StartShiftTimer();
             int readers = (int)_context.Readers.Max(R => R.id);
-            int totalBooks = _context.Books.Sum(b => b.quantity);
+            int totalBooks = _context.Books.Where(B=> B.status == "Available").Sum(b => b.quantity);
             label_Readers.Text = readers.ToString();
             int unreturnedBooksCount = CountUnreturnedBooks();
             label_BorBooks.Text=unreturnedBooksCount.ToString();

@@ -16,6 +16,8 @@ namespace library
     {
         private readonly librariesEntities _context;
         private readonly Librarians _user;
+        private Books _book; // Объявляем переменную book здесь
+
         public Poisk(librariesEntities context, Librarians user)
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace library
 
         private void button_poisk_Click(object sender, EventArgs e)
         {
-            string searchText = textBox1.Text; 
+            string searchText = textBox1.Text;
             listBox1.Items.Clear();
             var results = _context.Books.Where(B => B.title.Contains(searchText)).ToList();
             foreach (var result in results)
@@ -49,40 +51,25 @@ namespace library
             if (listBox1.SelectedIndex != -1)
             {
                 string selectedBook = listBox1.SelectedItem.ToString();
-                var book = _context.Books.Where(B => B.title == selectedBook)
-                            .Select(B => new
-                            {
-                                B.title,
-                                Author = B.Authors.full_name,
-                                B.release_year,
-                                B.quantity,
-                                Genre = B.Genres.genre,
-                                Publishing = B.Publishing.name,
-                                B.status
-                            })
-                            .FirstOrDefault();
-
-                if (book != null)
+                _book = _context.Books.Where(B => B.title == selectedBook).FirstOrDefault(); // Присваиваем значение переменной _book
+                if (_book != null)
                 {
                     DataTable dataTable = new DataTable();
                     dataTable.Columns.Add("Название");
-                    dataTable.Columns.Add(book.title);
-                    dataTable.Rows.Add("Автор", book.Author);
-                    dataTable.Rows.Add("Год издания", book.release_year.ToString());
-                    dataTable.Rows.Add("Количество", book.quantity.ToString());
-                    dataTable.Rows.Add("Жанр", book.Genre);
-                    dataTable.Rows.Add("Издательство", book.Publishing);
-                    dataTable.Rows.Add("Статус", book.status);
-
+                    dataTable.Columns.Add(_book.title);
+                    dataTable.Rows.Add("Автор", _book.Authors.full_name);
+                    dataTable.Rows.Add("Год издания", _book.release_year.ToString());
+                    dataTable.Rows.Add("Количество", _book.quantity.ToString());
+                    dataTable.Rows.Add("Жанр", _book.Genres.genre);
+                    dataTable.Rows.Add("Издательство", _book.Publishing.name);
+                    dataTable.Rows.Add("Статус", _book.status);
                     dataGridView1.DataSource = dataTable;
                 }
             }
-            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void button_back_Click(object sender, EventArgs e)
@@ -91,5 +78,24 @@ namespace library
             Hide();
             main.ShowDialog();
         }
+
+        private void button_edit_Click(object sender, EventArgs e)
+        {
+            if (_book != null)
+            {
+                EditBook edit = new EditBook(new librariesEntities(), _user, _book);
+                edit.ShowDialog();
+            }
+            Hide();
+        }
+
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+            if (_book != null)
+            {
+                DeleteBook del = new DeleteBook(new librariesEntities(), _user, _book);
+                del.ShowDialog();
+            }
+        }
     }
-}
+} 
